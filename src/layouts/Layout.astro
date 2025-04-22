@@ -7,6 +7,7 @@ import Head from '@/components/Head.astro'
 import Navbar from '@/components/react/navbar'
 import { SITE } from '@/consts'
 import { cn } from '@/lib/utils'
+import Posthog from '@/components/Posthog.astro'
 
 const { isWide = false } = Astro.props
 ---
@@ -23,6 +24,7 @@ const { isWide = false } = Astro.props
     <link rel="preload" href="/fonts/GeistVF.woff2" as="font" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/_montserrat_bold.ttf" as="font" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/_montserrat_regular.ttf" as="font" crossorigin="anonymous" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
     <script is:inline data-astro-rerun>
       (function() {
         try {
@@ -45,6 +47,7 @@ const { isWide = false } = Astro.props
         }
       })();
     </script>
+    <Posthog />
   </Head>
   <body>
     <div class="flex h-fit min-h-screen w-full flex-col gap-y-4 sm:gap-y-6 font-sans">
@@ -61,5 +64,15 @@ const { isWide = false } = Astro.props
       </main>
       <Footer />
     </div>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVK59XQK72"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-QVK59XQK72");
+    </script>
   </body>
 </html>
