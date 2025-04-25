@@ -67,7 +67,7 @@ const readTime = Math.max(1, Math.round(wordCount / wordsPerMinute));
 }
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json" set:html={JSON.stringify({
+<script type="application/ld+json" is:inline set:html={JSON.stringify({
   "@context": "https://schema.org",
   "@type": "BlogPosting",
   "headline": title,
