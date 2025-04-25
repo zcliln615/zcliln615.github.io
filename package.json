@@ -20,7 +20,7 @@
   "homepage": "https://cojocarudavid.me",
   "name": "cojocarudavid.me",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "scripts": {
     "dev": "astro dev",
