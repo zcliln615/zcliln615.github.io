@@ -126,19 +126,6 @@ const structuredData = {
         </p>
       </div>
 
-      <div class="mb-2">
-        <h2
-          id="skills-title"
-          class="font-custom text-2xl font-bold text-neutral-900 dark:text-white"
-        >
-          You like this blog?
-        </h2>
-        <!-- <p class="text-sm text-neutral-500 dark:text-neutral-400">
-          Give it a star <Star class="inline h-4 w-4" /> on{' '}
-          <Link href="
-        </p> -->
-      </div>
-
       <div class="flex flex-wrap gap-2">
         <Link
           href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(Astro.site + 'blog/' + post.id)}`}
@@ -217,6 +204,25 @@ const structuredData = {
             <Icon name="mdi:pinterest" class="size-4" />
           </Button>
         </Link>
+      </div>
+
+
+      <div class="mb-2 mt-4">
+        <h2
+          id="skills-title"
+          class="font-custom text-2xl font-bold text-neutral-900 dark:text-white"
+        >
+          Enjoyed this blog?
+        </h2>
+        <div class="text-sm text-neutral-500 dark:text-neutral-400 flex items-center flex-wrap">
+          Give it a star&nbsp;
+          <Icon name="line-md:star" class="size-4 text-yellow-500" />&nbsp;on&nbsp;
+          <Link href="https://github.com/cojocaru-david/portfolio" target="_blank" rel="noopener noreferrer" class="text-primary underline flex items-center flex-warp gap-2">
+            GitHub
+            <Icon name="line-md:github" class="size-4" />
+          </Link>
+          to support this project and help it grow. Your support means the world!
+        </div>        
       </div>
     </aside>
 

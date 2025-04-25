@@ -1,133 +1,248 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from './link'
 import ThemeToggle from './theme-toggle'
-import MobileMenu from '../ui/mobile-menu'
 import { NAV_LINKS, SITE } from '../../consts'
 import { cn } from '@/lib/utils'
 import debounce from 'lodash.debounce'
 import Logo from '../ui/logo'
+import { Button } from '@/components/ui/button'
+import { Menu, X } from 'lucide-react'
 
 const Navbar = () => {
   const [scrollLevel, setScrollLevel] = useState(0)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobile, setIsMobile] = useState(false)
-
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [activePath, setActivePath] = useState("/")
+  
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.matchMedia('(max-width: 768px)').matches)
+    // Set active path based on current URL
+    setActivePath(window.location.pathname)
+    
+    // Update active path when route changes (if using client-side routing)
+    const handleRouteChange = () => {
+      setActivePath(window.location.pathname)
     }
+    
+    window.addEventListener('popstate', handleRouteChange)
+    return () => {
+      window.removeEventListener('popstate', handleRouteChange)
+    }
+  }, [])
+  
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      const isMobileView = window.matchMedia('(max-width: 768px)').matches
+      setIsMobile(isMobileView)
+      if (!isMobileView && mobileMenuOpen) {
+        setMobileMenuOpen(false)
+      }
+    }, 100)
 
     handleResize()
     window.addEventListener('resize', handleResize)
-    document.addEventListener('astro:before-swap', handleResize)
     return () => {
       window.removeEventListener('resize', handleResize)
-      document.removeEventListener('astro:before-swap', handleResize)
     }
-  }, [])
+  }, [mobileMenuOpen])
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = debounce(() => {
       const scrollY = window.scrollY
-      if (scrollY > 500) {
-        setScrollLevel(4)
-      } else if (scrollY > 300) {
-        setScrollLevel(3)
-      } else if (scrollY > 150) {
-        setScrollLevel(2)
-      } else if (scrollY > 0) {
-        setScrollLevel(1)
-      } else {
-        setScrollLevel(0)
-      }
-    }
-
-    const debouncedHandleScroll = debounce(handleScroll, 50)
-    window.addEventListener('scroll', debouncedHandleScroll)
-    return () => {
-      window.removeEventListener('scroll', debouncedHandleScroll)
-    }
-  }, [])
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0)
-    }
+      setScrollLevel(
+        scrollY > 500 ? 4 : scrollY > 300 ? 3 : scrollY > 150 ? 2 : scrollY > 0 ? 1 : 0
+      )
+      setIsScrolled(scrollY > 0)
+    }, 50)
 
     window.addEventListener('scroll', handleScroll)
-    document.addEventListener('astro:before-swap', handleScroll)
     return () => {
       window.removeEventListener('scroll', handleScroll)
-      document.removeEventListener('astro:before-swap', handleScroll)
     }
   }, [])
+
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => {
+      document.body.style.overflow = ''
+    }
+  }, [mobileMenuOpen])
 
   const sizeVariants: Record<number, { width: string }> = {
     0: { width: '100%' },
-    1: { width: '90%'},
-    2: { width: '80%'},
-    3: { width: '70%'},
-    4: { width: '60%'},
+    1: { width: '90%' },
+    2: { width: '80%' },
+    3: { width: '70%' },
+    4: { width: '50%' },
+  }
+
+  const menuVariants = {
+    closed: {
+      opacity: 0,
+      y: "-100%",
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      }
+    },
+    open: {
+      opacity: 1,
+      y: "0%",
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      }
+    }
   }
 
   return (
-    <motion.header
-      aria-label="Navigation"
-      role="navigation"
-      layout={!isMobile}
-      initial={sizeVariants[0]}
-      animate={isMobile ? sizeVariants[0] : sizeVariants[scrollLevel]}
-      transition={{
-        duration: isMobile ? 0 : scrollLevel === 1 ? 0 : 0.4,
-        ease: 'easeInOut',
-      }}
-      className={cn(
-        'fixed left-1/2 z-10 -translate-x-1/2 transform backdrop-blur-lg',
-        'bg-background/80 border-0',
-        'rounded-none shadow-none transition-all duration-300 ease-in-out',
-        isScrolled && !isMobile && 'top-4',
-        isScrolled && !isMobile && 'rounded-full',
-        isScrolled && !isMobile && 'backdrop-blur-md',
-        isScrolled && !isMobile && 'border-foreground/10',
-        isScrolled && !isMobile && 'border',
-        isScrolled && !isMobile && 'bg-background/80',
-        isScrolled && !isMobile && 'backdrop-blur-md',
-        isScrolled && !isMobile && 'max-w-[calc(100vw-5rem)]',
-        isMobile && 'w-full',
-        isMobile && 'top-0',
-      )}
-    >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 p-4">
-        <Link
-          href="/"
-          className="font-custom flex shrink-0 items-center gap-2 text-xl font-bold"
-          aria-label="Home"
-          title="Home"
-          navigation="true"
-        >
-          <Logo className="h-8 w-8" />
-          {SITE.title}
-        </Link>
+    <>
+      <motion.header
+        aria-label="Navigation"
+        role="navigation"
+        layout={!isMobile}
+        initial={sizeVariants[0]}
+        animate={isMobile ? sizeVariants[0] : sizeVariants[scrollLevel]}
+        className={cn(
+          'fixed left-1/2 z-30 -translate-x-1/2 transform backdrop-blur-lg',
+          'bg-background/80 border-0',
+          'rounded-none shadow-none transition-all duration-300 ease-in-out',
+          'border border-transparent w-full',
+          isScrolled && !isMobile && 'rounded-full',
+          isScrolled && !isMobile && 'backdrop-blur-md',
+          isScrolled && !isMobile && 'border-foreground/10',
+          isScrolled && !isMobile && 'border',
+          isScrolled && !isMobile && 'bg-background/80',
+          isScrolled && !isMobile && 'max-w-[calc(100vw-5rem)]',
+          !isMobile && 'top-2 lg:top-4 xl:top-6',
+          isMobile && 'top-0',
+          isMobile && 'rounded-none',
+          isMobile && 'border-0',
+          isMobile && 'shadow-none',
+          isMobile && 'border-0'
+        )}
+      >
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 p-4">
+          <Link
+            href="/"
+            className="font-custom flex shrink-0 items-center gap-2 text-xl font-bold"
+            aria-label="Home"
+            title="Home"
+            navigation="true"
+          >
+            <Logo className="h-8 w-8" />
+            <span className={cn(
+              'transition-opacity',
+              mobileMenuOpen && isMobile ? 'text-white' : ''
+            )}>
+              {SITE.title}
+            </span>
+          </Link>
 
-        <div className="flex items-center gap-2 md:gap-4">
-          <nav className="hidden items-center gap-4 text-sm sm:gap-6 md:flex" aria-label="Main navigation" role="navigation">
-            {NAV_LINKS.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-foreground/60 hover:text-foreground/80 capitalize transition-colors"
+          <div className="flex items-center gap-2 md:gap-4">
+            <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation" role="navigation">
+              {NAV_LINKS.map((item) => {
+                // const isActive = activePath === item.href;
+                // or check if the current path starts with the item href
+                const isActive = activePath.startsWith(item.href) && item.href !== "/";
+                return (
+                  <motion.div
+                    key={item.href}
+                    whileHover={{ scale: 1.05 }}
+                    className="relative"
+                  >
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "text-sm font-medium capitalize transition-colors duration-200",
+                        "relative py-1 px-1",
+                        "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-0 after:bg-primary after:transition-all after:duration-300",
+                        "hover:after:w-full hover:text-foreground",
+                        isActive 
+                          ? "text-foreground after:w-full after:bg-primary" 
+                          : "text-foreground/70"
+                      )}
+                      onClick={() => setActivePath(item.href)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                );
+              })}
+            </nav>
+
+            <ThemeToggle />
+            
+            {isMobile && (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                className={cn(
+                  "ml-1 h-9 w-9",
+                  mobileMenuOpen ? "text-white" : "text-foreground"
+                )}
               >
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <MobileMenu />
-          <ThemeToggle />
+                {mobileMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </Button>
+            )}
+          </div>
         </div>
-      </div>
-    </motion.header>
+      </motion.header>
+      
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            key="mobile-menu"
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+            className="fixed inset-0 z-20 flex flex-col items-center justify-start bg-background border-0 shadow-none"
+          >
+            <div className="flex flex-col items-center justify-start h-full pt-24 w-full p-6">
+              <nav className="flex flex-col items-center justify-start gap-1 w-full">
+                {NAV_LINKS.map((item, i) => (
+                  <motion.div
+                    key={item.href}
+                    custom={i}
+                    className="w-full text-start"
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="text-white text-lg font-bold font-custom capitalize hover:text-white/80 transition-colors inline-block py-2 relative group"
+                    >
+                      {item.label}
+                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                    </Link>
+                  </motion.div>
+                ))}
+              </nav>
+              
+              <motion.div
+                custom={NAV_LINKS.length + 1}
+                className="mt-auto flex flex-col items-center gap-6"
+              >
+                <div className="text-white/60 text-sm text-center">
+                  © {new Date().getFullYear()} {SITE.title}
+                </div>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   )
 }
 
