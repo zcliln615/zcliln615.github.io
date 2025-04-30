@@ -7,6 +7,7 @@ import { getAllProjects } from '@/lib/data-utils'
 import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import { render } from 'astro:content'
+import PageHead from '@/components/PageHead.astro'
 
 export async function getStaticPaths() {
   const projects = await getAllProjects()
@@ -33,10 +34,11 @@ const structuredData = {
   keywords: project.data.tags ? project.data.tags.join(', ') : '',
   description: project.data.description || '',
 }
+const currentUrl = Astro.url;
 ---
 
-<Layout isWide>
-  <projectHead slot="head" project={project} />
+<Layout canonicalUrl={currentUrl} isWide={true}> 
+  <PageHead slot="head" title={project.data.name} />
   <script
     type="application/ld+json"
     is:inline
@@ -87,8 +89,10 @@ const structuredData = {
       src={project.data.image}
       alt={project.data.name}
       class="col-start-2 mb-8 h-auto w-full rounded-3xl object-cover"
-      loading="eager"
-      fetchpriority="high"
+      loading="lazy"
+      fetchpriority="low"      
+      width={800}
+      height={600}
     />
 
     {headings.length > 0 && <TableOfContents headings={headings} />}

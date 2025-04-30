@@ -31,12 +31,16 @@ export const SOCIAL_LINKS: SocialLink[] = [
     label: 'GitHub',
   },
   {
-    href: 'https://www.linkedin.com/in/cojocaru-david?ref=personal-website',
-    label: 'LinkedIn',
-  },
-  {
     href: 'mailto:contact@cojocarudavid.me',
     label: 'Email',
+  },
+  {
+    href: '+40 764 132 266',
+    label: 'Phone',
+  },
+  {
+    href: 'https://www.instagram.com/david._.cojo?ref=personal-website',
+    label: 'Instagram',
   },
   {
     href: '/rss.xml',
@@ -47,7 +51,8 @@ export const SOCIAL_LINKS: SocialLink[] = [
 export const ICON_MAP: IconMap = {
   Website: 'lucide:globe',
   GitHub: 'lucide:github',
-  LinkedIn: 'lucide:linkedin',
+  Instagram: 'lucide:instagram',
+  Phone: 'lucide:phone',
   Email: 'lucide:mail',
   RSS: 'lucide:rss',
 }

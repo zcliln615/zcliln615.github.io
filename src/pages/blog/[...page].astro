@@ -19,10 +19,12 @@ export async function getStaticPaths({
 
 const { page } = Astro.props
 const searchList = await getAllPosts()
+const currentUrl = Astro.url;
 ---
 
-<Layout>
+<Layout canonicalUrl={currentUrl}>
   <PageHead slot="head" title="Blog" />
+  
   <Breadcrumbs
     items={[
       { label: 'Blog', href: '/blog', icon: 'lucide:archive' },

@@ -20,8 +20,11 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 
 import tailwindcss from '@tailwindcss/vite'
 
+import node from '@astrojs/node';
+
 export default defineConfig({
   site: 'https://cojocarudavid.me',
+
   integrations: [
     expressiveCode({
       themes: ['catppuccin-latte', 'ayu-dark'],
@@ -41,22 +44,41 @@ export default defineConfig({
     mdx(),
     react(),
     sitemap({
-      changefreq: 'weekly',
-      priority: 0.7,
-      lastmod: new Date(),
+      entryLimit: 100
     }),
     icon(),
   ],
+
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      exclude: ["satori", "satori-html"],
+      include: [
+        "react",
+        "react-dom",
+        "clsx",
+        "framer-motion",
+        "lucide-react",
+        "lodash.debounce",
+        "@radix-ui/react-icons",
+        "@radix-ui/react-avatar",
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-scroll-area",
+        "@radix-ui/react-separator",
+        "@radix-ui/react-slot"
+      ]
+    },    
   },
+
   server: {
     port: 3000,
     host: true,
   },
+
   devToolbar: {
     enabled: false,
   },
+
   markdown: {
     syntaxHighlight: false,
     rehypePlugins: [
@@ -87,4 +109,8 @@ export default defineConfig({
     ],
     remarkPlugins: [remarkMath, remarkEmoji, remarkSectionize],
   },
+
+  adapter: node({
+    mode: 'standalone',
+  }),
 })
