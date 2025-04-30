@@ -43,9 +43,7 @@ export default defineConfig({
     }),
     mdx(),
     react(),
-    sitemap({
-      entryLimit: 100
-    }),
+    sitemap(),
     icon(),
   ],
 
