@@ -8,6 +8,7 @@ import debounce from 'lodash.debounce'
 import Logo from '../ui/logo'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
+import { Separator } from '../ui/separator'
 
 const Navbar = () => {
   const [scrollLevel, setScrollLevel] = useState(0)
@@ -17,10 +18,8 @@ const Navbar = () => {
   const [activePath, setActivePath] = useState("/")
   
   useEffect(() => {
-    // Set active path based on current URL
     setActivePath(window.location.pathname)
     
-    // Update active path when route changes (if using client-side routing)
     const handleRouteChange = () => {
       setActivePath(window.location.pathname)
     }
@@ -136,10 +135,8 @@ const Navbar = () => {
             navigation="true"
           >
             <Logo className="h-8 w-8" />
-            <span className={cn(
-              'transition-opacity',
-              mobileMenuOpen && isMobile ? 'text-white' : ''
-            )}>
+            <span className={
+              'transition-opacity duration-200 ease-in-out text-foreground/90 dark:text-white'}>
               {SITE.title}
             </span>
           </Link>
@@ -147,8 +144,6 @@ const Navbar = () => {
           <div className="flex items-center gap-2 md:gap-4">
             <nav className="hidden items-center gap-6 md:flex" aria-label="Main navigation" role="navigation">
               {NAV_LINKS.map((item) => {
-                // const isActive = activePath === item.href;
-                // or check if the current path starts with the item href
                 const isActive = activePath.startsWith(item.href) && item.href !== "/";
                 return (
                   <motion.div
@@ -184,10 +179,9 @@ const Navbar = () => {
                 size="icon"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-                className={cn(
-                  "ml-1 h-9 w-9",
-                  mobileMenuOpen ? "text-white" : "text-foreground"
-                )}
+                className={
+                  "ml-1 h-9 w-9 rounded-full p-0 transition-colors duration-200 ease-in-out"
+                }
               >
                 {mobileMenuOpen ? (
                   <X className="h-5 w-5" />
@@ -221,10 +215,10 @@ const Navbar = () => {
                     <Link
                       href={item.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className="text-white text-lg font-bold font-custom capitalize hover:text-white/80 transition-colors inline-block py-2 relative group"
+                      className="dark:text-white text-lg font-bold font-custom capitalize dark:hover:text-white/80 transition-colors inline-block py-2 relative group"
                     >
                       {item.label}
-                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
+                      <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-neutral-900 dark:bg-white group-hover:w-full transition-all duration-300 ease-in-out"></span>
                     </Link>
                   </motion.div>
                 ))}
@@ -234,8 +228,19 @@ const Navbar = () => {
                 custom={NAV_LINKS.length + 1}
                 className="mt-auto flex flex-col items-center gap-6"
               >
-                <div className="text-white/60 text-sm text-center">
-                  © {new Date().getFullYear()} {SITE.title}
+                <div className="flex flex-wrap items-center justify-center gap-x-2 text-center">
+                  <span className="text-muted-foreground text-sm" aria-label="copyright">
+                    2020 - {new Date().getFullYear()} &copy; All rights reserved.
+                  </span>
+                  <Separator orientation="vertical" className="hidden h-4! sm:block" />
+                  <p className="text-muted-foreground text-sm" aria-label="open-source description">
+                    <Link
+                      href="https://github.com/cojocaru-david/portfolio"
+                      class="text-foreground"
+                      external
+                      underline>Open-source</Link
+                    > under MIT license
+                  </p>
                 </div>
               </motion.div>
             </div>

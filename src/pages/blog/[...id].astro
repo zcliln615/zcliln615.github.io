@@ -12,6 +12,7 @@ import { getAdjacentPosts, getAllPosts } from '@/lib/data-utils'
 import { formatDate, readingTime } from '@/lib/utils'
 import { Icon } from 'astro-icon/components'
 import { render } from 'astro:content'
+import LikePost from '@/components/LikePost.astro'
 
 export async function getStaticPaths() {
   const posts = await getAllPosts()
@@ -40,10 +41,12 @@ const structuredData = {
   keywords: post.data.tags ? post.data.tags.join(', ') : '',
   description: post.data.description || '',
 }
+const currentUrl = Astro.url;
 ---
 
-<Layout isWide>
+<Layout canonicalUrl={currentUrl} isWide={true}>
   <PostHead slot="head" post={post} />
+  
   <script
     type="application/ld+json"
     is:inline
@@ -206,7 +209,8 @@ const structuredData = {
         </Link>
       </div>
 
-
+      <hr class="my-8 hidden md:block" />
+      
       <div class="mb-2 mt-4">
         <h2
           id="skills-title"
@@ -222,6 +226,9 @@ const structuredData = {
             <Icon name="line-md:github" class="size-4" />
           </Link>
           to support this project and help it grow. Your support means the world!
+        </div>
+        <div class="mt-4 flex items-center gap-2 justify-center">
+          <LikePost post={post} />
         </div>        
       </div>
     </aside>
