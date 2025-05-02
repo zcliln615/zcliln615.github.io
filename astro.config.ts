@@ -23,7 +23,7 @@ import tailwindcss from '@tailwindcss/vite'
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
-  site: 'https://cojocarudavid.me',
+  site: 'https://www.cojocarudavid.me',
 
   integrations: [
     expressiveCode({
@@ -43,9 +43,7 @@ export default defineConfig({
     }),
     mdx(),
     react(),
-    sitemap({
-      entryLimit: 100
-    }),
+    sitemap(),
     icon(),
   ],
 
