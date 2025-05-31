@@ -15,12 +15,12 @@
     "check": "astro check"
   },
   "dependencies": {
-    "@astrojs/mdx": "4.0.3",
+    "@astrojs/mdx": "4.3.0",
     "@astrojs/rss": "4.0.11",
-    "@astrojs/sitemap": "3.2.1",
-    "@astrojs/tailwind": "5.1.4",
+    "@astrojs/sitemap": "3.4.0",
+    "@astrojs/tailwind": "6.0.2",
     "@shikijs/transformers": "^1.25.1",
-    "astro": "5.1.2",
+    "astro": "5.8.1",
     "astro-icon": "^1.1.5",
     "astro-robots-txt": "^1.0.0",
     "astro-webmanifest": "^1.0.0",
@@ -60,6 +60,10 @@
     "typescript": "^5.7.2"
   },
   "pnpm": {
-		"onlyBuiltDependencies": ["@biomejs/biome", "esbuild", "sharp"]
-	}
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "esbuild",
+      "sharp"
+    ]
+  }
 }
