@@ -1,0 +1,63 @@
+---
+// 中国国旗组件
+export interface Props {
+  class?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const { class: className = '', size = 'md' } = Astro.props;
+
+const sizeClasses = {
+  sm: 'h-4 w-4',
+  md: 'h-6 w-6', 
+  lg: 'h-8 w-8'
+};
+---
+
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 900 600"
+  class={`${sizeClasses[size]} transition-transform duration-500 hover:rotate-12 ${className}`}
+  aria-hidden="true"
+  role="img"
+  focusable="false"
+  aria-label="中华人民共和国国旗"
+>
+  <!-- 红色背景 -->
+  <rect width="900" height="600" fill="#de2910"/>
+  
+  <!-- 大五角星 -->
+  <polygon
+    points="150,120 173.3,187.2 256.6,187.2 193.65,234 216.95,301.2 150,254.4 83.05,301.2 106.35,234 43.4,187.2 126.7,187.2"
+    fill="#ffde00"
+  />
+  
+  <!-- 四个小五角星 -->
+  <!-- 第一颗小星 -->
+  <polygon
+    points="360,90 367.5,108.1 387.6,108.1 372.05,120.4 379.55,138.5 360,126.2 340.45,138.5 347.95,120.4 332.4,108.1 352.5,108.1"
+    fill="#ffde00"
+    transform="rotate(-8 360 114)"
+  />
+  
+  <!-- 第二颗小星 -->
+  <polygon
+    points="390,150 397.5,168.1 417.6,168.1 402.05,180.4 409.55,198.5 390,186.2 370.45,198.5 377.95,180.4 362.4,168.1 382.5,168.1"
+    fill="#ffde00"
+    transform="rotate(-21 390 174)"
+  />
+  
+  <!-- 第三颗小星 -->
+  <polygon
+    points="390,240 397.5,258.1 417.6,258.1 402.05,270.4 409.55,288.5 390,276.2 370.45,288.5 377.95,270.4 362.4,258.1 382.5,258.1"
+    fill="#ffde00"
+    transform="rotate(-44 390 264)"
+  />
+  
+  <!-- 第四颗小星 -->
+  <polygon
+    points="360,300 367.5,318.1 387.6,318.1 372.05,330.4 379.55,348.5 360,336.2 340.45,348.5 347.95,330.4 332.4,318.1 352.5,318.1"
+    fill="#ffde00"
+    transform="rotate(-75 360 324)"
+  />
+</svg>

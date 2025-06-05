@@ -1,11 +1,21 @@
 import { cn } from '@/lib/utils';
 
-function BuyMeCoffee({ classname }: { classname?: string }) {
+interface BuyMeCoffeeProps {
+  classname?: string;
+  href?: string;
+  target?: string;
+}
+
+function BuyMeCoffee({ 
+  classname, 
+  href = 'https://github.com/zcliln615', 
+  target = '_blank' 
+}: BuyMeCoffeeProps) {
   return (
     <>
       <a
-        href='https://ko-fi.com/cojoo'
-        target='_blank'
+        href={href}
+        target={target}
         className={cn(
           'border relative group w-36 mx-auto cursor-pointer h-32 grid place-content-center p-10 py-14 bg-primary  rounded-md  overflow-hidden',
           classname
@@ -628,3 +638,4 @@ function BuyMeCoffee({ classname }: { classname?: string }) {
 }
 
 export default BuyMeCoffee;
+export type { BuyMeCoffeeProps };

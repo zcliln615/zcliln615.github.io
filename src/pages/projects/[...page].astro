@@ -1,6 +1,7 @@
 ---
 import Breadcrumbs from '@/components/Breadcrumbs.astro'
 import PageHead from '@/components/PageHead.astro'
+import Donation from '@/components/react/donation'
 import BuyMeCoffee from '@/components/react/buymeacoffe'
 import PaginationComponent from '@/components/ui/pagination'
 import Layout from '@/layouts/Layout.astro'
@@ -36,7 +37,7 @@ const currentUrl = Astro.url;
       <div>
           <div class="flex w-fit items-center gap-2 text-primary">
             <Icon name="lucide:star" class="h-4 w-4 text-yellow-500 animate-pulse" />
-            <p class="shimmer word-spacing font-mono text-sm uppercase leading-none text-primary">My Work</p>
+            <p class="shimmer word-spacing font-mono text-sm uppercase leading-none text-primary">我的创造</p>
           </div>
           <h2
             id="skills-title"
@@ -45,11 +46,11 @@ const currentUrl = Astro.url;
             Projects
           </h2>
           <p class="text-muted-foreground text-md max-w-2xl mt-3">
-            Here are some of the projects I have worked on. I am always looking for new challenges and opportunities to learn and grow as a developer. If you have a project in mind, feel free to reach out!
-          </p>
-      </div>
+            这是我从事的一些项目。如果您也正在从事类似的项目，或者对我的工作感兴趣，请随时联系我！我很乐意分享经验和交流想法。
+          </p>      </div>
       <div>
-        <BuyMeCoffee />
+        <!-- <Donation client:load /> -->
+        <BuyMeCoffee client:load />
       </div>  
     </div>
   

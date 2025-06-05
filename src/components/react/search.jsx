@@ -58,13 +58,12 @@ function Search({ searchList, initialPosts }) {
   }
 
   return (
-    <div>
-      <div>
+    <div>      <div>
         <label
           htmlFor="search"
           className="text-foreground mb-2 block text-sm font-medium dark:text-white"
         >
-          Search
+          搜索
         </label>
         <Input
           type="text"
@@ -74,18 +73,17 @@ function Search({ searchList, initialPosts }) {
           id="search"
           autoComplete="off"
           autoCorrect="off"
-          placeholder="Search posts"
+          placeholder="搜索文章..."
           className="w-full outline-none focus:ring-0 dark:bg-neutral-900 dark:text-white"
         />
       </div>
 
-      <hr className="my-6 border-neutral-200 dark:border-neutral-700" />
-      <div className={cn('flex items-center justify-between', 'mb-4', !query && 'hidden')}>
+      <hr className="my-6 border-neutral-200 dark:border-neutral-700" />      <div className={cn('flex items-center justify-between', 'mb-4', !query && 'hidden')}>
         <h2 className="text-lg font-semibold text-neutral-900 dark:text-white">
-          {filteredPosts.length} posts found
+          找到 {filteredPosts.length} 篇文章
         </h2>
         <p className="text-sm text-neutral-500 dark:text-neutral-400">
-          Search results for: <strong>{query}</strong>
+          搜索结果：<strong>{query}</strong>
         </p>
       </div>
 
@@ -96,12 +94,10 @@ function Search({ searchList, initialPosts }) {
               <BlogCardJSX entry={post} />
             </li>
           ))}
-        </ul>
-
-        {filteredPosts.length === 0 && (
+        </ul>        {filteredPosts.length === 0 && (
           <div className="mt-12 text-center">
             <p className="text-neutral-600 dark:text-neutral-400">
-              No posts found matching your search criteria.
+              没有找到符合搜索条件的文章
             </p>
           </div>
         )}

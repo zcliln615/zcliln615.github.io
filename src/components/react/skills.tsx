@@ -25,8 +25,18 @@ import {
   SiDiscord,
   SiSpotify,
   SiBrave,
+  SiC,
+  SiCplusplus,
+  SiPython,
+  SiOpenai,
+  SiGithub,
+  SiAnthropic,
+  SiTensorflow,
+  SiPytorch,
+  SiArduino,
+  SiRaspberrypi,
 } from 'react-icons/si'
-import { FileCode, LucideAppWindow, Code } from 'lucide-react'
+import { FileCode, LucideAppWindow, Code, Calculator, Microchip, Wifi, Brackets } from 'lucide-react'
 
 const iconMap: { [key: string]: IconType } = {
   'mdi:language-html5': SiHtml5,
@@ -52,7 +62,24 @@ const iconMap: { [key: string]: IconType } = {
   'cib:brave': SiBrave,
   'mdi:visual-studio-code': FileCode,
   'mdi:windows': LucideAppWindow,
-  'mdi:visual-studio': Code,
+  'mdi:visual-studio': Code,  // 新添加的编程语言图标
+  'mdi:language-c': SiC,
+  'mdi:language-cpp': SiCplusplus,
+  'mdi:language-python': SiPython,
+  'mdi:function-variant': Calculator,
+  'mdi:application-brackets': Brackets,
+  // AI 工具图标
+  'simple-icons:openai': SiOpenai,
+  'simple-icons:github': SiGithub,
+  'simple-icons:anthropic': SiAnthropic,
+  'simple-icons:tensorflow': SiTensorflow,
+  'simple-icons:pytorch': SiPytorch,
+  // 嵌入式系统图标
+  'simple-icons:arduino': SiArduino,
+  'simple-icons:raspberrypi': SiRaspberrypi,
+  'mdi:microchip': Microchip,
+  'mdi:wifi': Wifi,
+  'mdi:code-braces': Brackets,
 }
 
 const categories = Object.keys(technologies)
@@ -80,9 +107,8 @@ const Skills: React.FC = () => {
             direction={groupIndex % 2 === 0 ? 'normal' : 'reverse'}
             showFade={true}
             className="flex flex-row justify-center"
-          >
-            {group.flatMap((category) =>
-              technologies[category as keyof Technologies].map(
+          >            {group.flatMap((category) =>
+              (technologies[category as keyof Technologies] || []).map(
                 (tech: Category, techIndex: number) => {
                   const IconComponent = iconMap[tech.logo] || FaQuestionCircle
                   return (
