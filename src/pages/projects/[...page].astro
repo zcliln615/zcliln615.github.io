@@ -25,10 +25,10 @@ const currentUrl = Astro.url;
 ---
 
 <Layout canonicalUrl={currentUrl}>
-  <PageHead slot="head" title="Projects" />
+  <PageHead slot="head" title="项目" />
   <Breadcrumbs
     items={[
-      { label: 'Projects', href: '/projects', icon: 'lucide:folder' },
+      { label: '项目', href: '/projects', icon: 'lucide:folder' },
     ]}
   />
 
@@ -43,7 +43,7 @@ const currentUrl = Astro.url;
             id="skills-title"
             class="font-custom text-foreground text-4xl font-bold mt-2"
           >
-            Projects
+            我的项目
           </h2>
           <p class="text-muted-foreground text-md max-w-2xl mt-3">
             这是我从事的一些项目。如果您也正在从事类似的项目，或者对我的工作感兴趣，请随时联系我！我很乐意分享经验和交流想法。
@@ -79,7 +79,7 @@ const currentUrl = Astro.url;
               <div>
                 <h3 class="text-xl font-medium text-foreground mb-2">{project.data.name}</h3>
                 <p class="text-sm text-muted-foreground line-clamp-2 mb-4">
-                  {project.data.description || "An innovative project showcasing creativity and technical skills"}
+                  {project.data.description || "一个展示创造力和技术技能的创新项目"}
                 </p>
               </div>
               <div class="flex flex-wrap justify-between items-center mt-auto pt-3 border-t border-border/40">
@@ -93,7 +93,7 @@ const currentUrl = Astro.url;
                 </div>
                 <p class="text-xs font-medium text-muted-foreground flex items-center">
                   <Icon name="lucide:calendar" class="h-3 w-3 mr-1" />
-                  {project.data.endDate ? new Date(project.data.endDate).getFullYear() : 'Ongoing'}
+                  {project.data.endDate ? new Date(project.data.endDate).getFullYear() : '进行中'}
                 </p>
               </div>
             </div>

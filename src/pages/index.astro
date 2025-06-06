@@ -16,7 +16,7 @@ const currentUrl = Astro.url;
 
 <Layout canonicalUrl={currentUrl}>
   <PageHead slot="head" title="Junior Full Stack Developer" />
-  <section class="flex flex-col gap-y-12 px-4 py-8 sm:px-8 lg:px-16">
+  <section class="flex flex-col gap-y-12 px-4 py-8 sm:px-8 lg:px-16 chinese-content">
     <div
       class="flex flex-col items-center text-center sm:flex-row sm:items-start sm:gap-8 sm:text-left"
     >
@@ -35,13 +35,14 @@ const currentUrl = Astro.url;
           <span
             class="bg-primary text-primary-foreground ring-primary/30 rounded-full px-3 py-1 text-sm font-medium ring-1"
           >
-            I'm from
-          </span>          <span class="flex items-center gap-1">
+            来自
+          </span>
+          <span class="flex items-center gap-1">
             <span class="text-foreground text-sm font-medium"> {SITE.location}</span>
             <FlagChina size="sm" />
           </span>
         </div>
-        <p class="text-md text-foreground mt-4 text-start font-sans" title="description" aria-label="description">
+        <p class="text-md text-foreground mt-4 text-start font-sans chinese-content" title="description" aria-label="description" style="line-height: 1.8; letter-spacing: 0.025em; word-spacing: 0.1em;">
           {SITE.description}
         </p>
       </div>
@@ -57,7 +58,7 @@ const currentUrl = Astro.url;
       >
         Skills & Technologies
       </h2>
-      <p class="text-muted-foreground text-sm" aria-label="skills description">
+      <p class="text-muted-foreground text-sm chinese-content" aria-label="skills description" style="line-height: 1.7; letter-spacing: 0.025em; word-spacing: 0.1em;">
         以下是我熟悉的技能和技术栈。我一直在不断学习和提升自己的能力，希望能在未来的项目中应用这些技能。
       </p>
       <div>
@@ -75,7 +76,7 @@ const currentUrl = Astro.url;
         >
           Latest Blog Posts
         </h2>
-        <p class="text-muted-foreground text-sm" aria-label="blog description">
+        <p class="text-muted-foreground text-sm chinese-content" aria-label="blog description" style="line-height: 1.7; letter-spacing: 0.025em; word-spacing: 0.1em;">
           这是我最近写的一些博客文章，分享了我在编程、技术和生活等方面的见解。
         </p>
       </div>

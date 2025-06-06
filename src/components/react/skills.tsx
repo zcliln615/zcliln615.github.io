@@ -114,13 +114,17 @@ const Skills: React.FC = () => {
                   return (
                     <div
                       key={`${category}-${techIndex}`}
-                      className="tech-badge repo-card border-border bg-card text-muted-foreground mr-5 flex items-center gap-3 rounded-full border p-3 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md"
+                      className="tech-badge repo-card border-border bg-card text-muted-foreground mr-5 flex items-center gap-3 rounded-full border p-3 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md chinese-content"
                       data-tech-name={`${category}-${techIndex}`}
                     >
                       <span className="bg-muted flex h-10 w-10 items-center justify-center rounded-full p-2 text-lg shadow-inner">
                         <IconComponent className="tech-icon text-primary" />
                       </span>
-                      <span className="text-foreground font-medium">
+                      <span className="text-foreground font-medium whitespace-nowrap" style={{
+                        letterSpacing: '0.025em',
+                        lineHeight: '1.5',
+                        fontFamily: 'var(--font-sans)'
+                      }}>
                         {tech.text}
                       </span>
                     </div>

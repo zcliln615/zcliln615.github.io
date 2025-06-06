@@ -178,7 +178,7 @@ const Navbar = () => {
                 variant="ghost"
                 size="icon"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+                aria-label={mobileMenuOpen ? "关闭菜单" : "打开菜单"}
                 className={
                   "ml-1 h-9 w-9 rounded-full p-0 transition-colors duration-200 ease-in-out"
                 }
@@ -229,17 +229,17 @@ const Navbar = () => {
                 className="mt-auto flex flex-col items-center gap-6"
               >
                 <div className="flex flex-wrap items-center justify-center gap-x-2 text-center">
-                  <span className="text-muted-foreground text-sm" aria-label="copyright">
-                    2020 - {new Date().getFullYear()} &copy; All rights reserved.
+                  <span className="text-muted-foreground text-sm" aria-label="版权信息">
+                    2020 - {new Date().getFullYear()} &copy; 保留所有权利
                   </span>
                   <Separator orientation="vertical" className="hidden h-4! sm:block" />
-                  <p className="text-muted-foreground text-sm" aria-label="open-source description">
+                  <p className="text-muted-foreground text-sm" aria-label="开源项目说明">
                     <Link
                       href="https://github.com/cojocaru-david/portfolio"
                       class="text-foreground"
                       external
-                      underline>Open-source</Link
-                    > under MIT license
+                      underline>开源项目</Link
+                    > 基于 MIT 许可证
                   </p>
                 </div>
               </motion.div>

@@ -23,12 +23,12 @@ const currentUrl = Astro.url;
 ---
 
 <Layout canonicalUrl={currentUrl}>
-  <PageHead slot="head" title="Blog" />
+  <PageHead slot="head" title="博客" />
   
   <Breadcrumbs
     items={[
-      { label: 'Blog', href: '/blog', icon: 'lucide:archive' },
-      { label: `Page ${page.currentPage}`, icon: 'lucide:folder-open' },
+      { label: '博客', href: '/blog', icon: 'lucide:archive' },
+      { label: `第 ${page.currentPage} 页`, icon: 'lucide:folder-open' },
     ]}
   />
   <section class="max-screen mt-12 px-4 md:px-6">
@@ -42,7 +42,7 @@ const currentUrl = Astro.url;
     id="skills-title"
     class="font-custom text-foreground text-4xl font-bold mt-2"
     >
-      Blogs
+      博客文章
     </h2>
     <p class="text-muted-foreground text-md max-w-2xl mt-3">
       欢迎来到我的博客！在这里，我将分享我在学习进步路上的经验和见解。希望这些信息对每一个访问者都有帮助和有一定吸引力。

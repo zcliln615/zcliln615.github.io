@@ -29,6 +29,18 @@ function cleanupHeading(text: string): string {
   return text.replace(/<[^>]+>/g, '').replace(/&nbsp;/g, ' ')
 }
 ---
+<style>
+ul#table-of-contents,
+ul#table-of-contents li,
+ul#table-of-contents a {
+  word-break: break-word;
+  overflow-wrap: break-word;
+  line-break: auto;
+  text-align: justify;
+  text-justify: inter-ideograph;
+  hanging-punctuation: first last;
+}
+</style>
 
 <details
   open

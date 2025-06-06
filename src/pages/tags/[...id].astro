@@ -31,23 +31,24 @@ const currentUrl = Astro.url;
 <Layout canonicalUrl={currentUrl}>
   <PageHead
     slot="head"
-    title={`Posts tagged with "${tag}"`}
-    description={`A collection of posts tagged with ${tag}.`}
+    title={`标签：${tag}`}
+    description={`包含标签 ${tag} 的所有文章。`}
   />
   <Breadcrumbs
     items={[
-      { href: '/tags', label: 'Tags', icon: 'lucide:tags' },
+      { href: '/tags', label: '标签', icon: 'lucide:tags' },
       { label: tag, icon: 'lucide:tag' },
     ]}
   />
 
   <div class="flex flex-wrap items-center gap-2">
-    <h1 class="text-3xl font-medium">Posts tagged with</h1>
+    <h1 class="text-3xl font-medium">标签</h1>
     <span
       class="bg-secondary flex items-center gap-x-1 rounded-full px-4 py-2 text-2xl font-medium"
     >
       <Icon name="lucide:hash" class="size-6 -translate-x-0.5" />{tag}
     </span>
+    <span class="text-3xl font-medium">的文章</span>
   </div>
 
   <ul class="flex flex-col gap-y-4">

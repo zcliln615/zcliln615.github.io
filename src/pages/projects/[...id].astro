@@ -50,7 +50,7 @@ const currentUrl = Astro.url;
     <div class="col-start-2">
       <Breadcrumbs
         items={[
-          { href: '/projects', label: 'Projects', icon: 'lucide:folder' },
+          { href: '/projects', label: '项目', icon: 'lucide:folder' },
           { label: project.data.name, icon: 'lucide:folder-open' },
         ]}
       />
@@ -77,7 +77,7 @@ const currentUrl = Astro.url;
               ))
             ) : (
               <span class="text-muted-foreground text-sm">
-                No tags available
+                暂无标签
               </span>
             )
           }

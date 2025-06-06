@@ -58,7 +58,7 @@ const currentUrl = Astro.url;
     <div class="col-start-2">
       <Breadcrumbs
         items={[
-          { href: '/blog', label: 'Blog', icon: 'lucide:archive' },
+          { href: '/blog', label: '博客', icon: 'lucide:archive' },
           { label: post.data.title, icon: 'lucide:file-text' },
         ]}
       />
@@ -85,7 +85,7 @@ const currentUrl = Astro.url;
               ))
             ) : (
               <span class="text-muted-foreground text-sm">
-                No tags available
+                暂无标签
               </span>
             )
           }
@@ -241,8 +241,8 @@ const currentUrl = Astro.url;
     size="icon"
     className="group fixed right-8 bottom-8 z-50 hidden"
     id="scroll-to-top"
-    title="Scroll to top"
-    aria-label="Scroll to top"
+    title="回到顶部"
+    aria-label="回到顶部"
   >
     <Icon
       name="lucide:arrow-up"
