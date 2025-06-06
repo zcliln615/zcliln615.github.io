@@ -20,10 +20,9 @@ import { pluginLineNumbers } from '@expressive-code/plugin-line-numbers'
 
 import tailwindcss from '@tailwindcss/vite'
 
-import vercel from '@astrojs/vercel';
-
 export default defineConfig({
   site: 'https://zcliln615.github.io',
+  output: 'static',
 
   integrations: [
     expressiveCode({
@@ -104,9 +103,6 @@ export default defineConfig({
           },
         },
       ],
-    ],
-    remarkPlugins: [remarkMath, remarkEmoji, remarkSectionize],
+    ],    remarkPlugins: [remarkMath, remarkEmoji, remarkSectionize],
   },
-
-  adapter: vercel()
 })
