@@ -3,7 +3,7 @@ import type { IconMap, SocialLink, Site } from '@/types'
 export const SITE: Site = {
   title: '明 日 依 在',
   description:
-    "嗨！我是一名热爱技术的开发者，专注于嵌入式开发技术。在这里，我会分享我的学习心得、项目经验，以及对技术和生活的思考。从代码优化到架构设计，从新技术探索到最佳实践分享，我希望通过文字记录成长的足迹，也希望能帮助到同样在技术路上前行的朋友们。",
+    "嗨！我是一名热爱技术的开发者，专注于嵌入式开发。在这里，我会分享我的学习心得、项目经验，以及对技术和生活的思考。从代码优化到架构设计，从新技术探索到最佳实践分享，我希望通过文字记录成长的足迹，也希望能帮助到同样在技术路上前行的朋友们。",
   href: 'https://zcliln615.github.io',
   author: 'zcliln615',
   locale: 'zh-CN', // 中文（简体）
@@ -50,7 +50,7 @@ export const SOCIAL_LINKS: SocialLink[] = [
 
 // 支持/赞助链接配置
 export const SUPPORT_LINK = {
-  href: 'https://github.com/sponsors/zcliln615', // 您可以替换为您的赞助链接
+  href: 'https://github.com/zcliln615', // 您可以替换为您的赞助链接
   label: '支持我的工作',
 }
 

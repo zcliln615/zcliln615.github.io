@@ -1,7 +1,19 @@
 {
-  "name": "Cojocaru David",
-  "short_name": "CD",
+  "name": "明日依在",
+  "short_name": "明日",
   "icons": [
+    {
+      "src": "/phi-icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/phi-icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    },
     {
       "src": "/web-app-manifest-192x192.png",
       "sizes": "192x192",

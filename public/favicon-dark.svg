@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
   <!-- 背景 -->
-  <rect width="32" height="32" fill="#ffffff"/>
+  <rect width="32" height="32" fill="#1a1a1a"/>
   
   <!-- 椭圆（长轴水平） -->
   <ellipse 
@@ -8,7 +8,7 @@
     cy="16" 
     rx="10" 
     ry="7"
-    stroke="#333333" 
+    stroke="#ffffff" 
     stroke-width="2"
     fill="none"
   />
@@ -19,7 +19,7 @@
     y1="26" 
     x2="26" 
     y2="6"
-    stroke="#333333" 
+    stroke="#ffffff" 
     stroke-width="3"
   />
 </svg>

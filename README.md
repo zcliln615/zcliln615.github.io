@@ -1,272 +1,222 @@
-# Developer Portfolio & Blog
+# 明日依在 - 个人博客与作品集
 
 ![Astro](https://img.shields.io/badge/Astro-FF5D01?style=for-the-badge&logo=astro&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
 
-![thubnail](https://i.imgur.com/zPgHtcu.png "Preview")
+> 一个专注于嵌入式开发的技术博客，记录学习心得与项目经验
 
-A modern, high-performance personal portfolio and blog built with Astro.js. Designed to showcase your projects and technical writing with blazing-fast performance and exceptional SEO.
+## 🌟 关于项目
 
-## ✨ Features
+这是一个基于 Astro.js 构建的现代化个人博客与作品集网站。网站采用了简洁优雅的设计，专注于技术内容的展示和分享。主要用于记录嵌入式开发的学习心得、项目经验，以及对技术和生活的思考。
+>项目在claude sonnet 4的帮助下完成，旨在提供一个高性能、易于维护的个人网站。
 
-- 🚀 **Blazing fast performance** - Built with Astro.js for optimal loading speeds
-- 📝 **Full-featured blog** - Support for technical articles with code highlighting
-- 🎨 **Beautiful UI** - Modern, responsive design powered by Tailwind CSS
-- 🌙 **Dark mode support** - Seamless light/dark theme switching
-- 📱 **Fully responsive** - Looks great on all devices from mobile to desktop
-- 🔍 **SEO optimized** - Structured data, meta tags, and optimized for search engines
-- 🏷️ **Tag system** - Categorize blog posts and projects with tags
-- 📊 **Content collection** - Organized content management with Astro's content collections
-- 🖼️ **Project showcase** - Display your work with images, descriptions, and technology tags
+### 🎨 设计特色
 
-## 🛠️ Tech Stack
+- **中文优化** - 完整的中文本地化设计，适合中文内容展示
+- **主题切换** - 支持明暗主题无缝切换
+- **响应式设计** - 在所有设备上都有完美的展示效果
 
-- **[Astro.js](https://astro.build/)** - Static site generator with excellent performance
-- **[React.js](https://reactjs.org/)** - For interactive components
-- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
-- **[TypeScript](https://www.typescriptlang.org/)** - Type safety and improved developer experience
-- **[MDX](https://mdxjs.com/)** - Markdown with JSX for rich content creation
-- **[Preact](https://preactjs.com/)** - Lightweight alternative to React for UI components
+## ✨ 功能特性
 
-## 📋 Prerequisites
+- 🚀 **极致性能** - 基于 Astro.js 构建，加载速度极快
+- 📝 **功能完善的博客** - 支持技术文章写作，代码高亮显示
+- 🎨 **现代化UI** - 使用 Tailwind CSS 打造的精美响应式设计
+- 🌙 **深色模式** - 完整的明暗主题支持
+- 📱 **移动优先** - 从手机到桌面的完美适配
+- 🔍 **SEO优化** - 结构化数据、meta标签，搜索引擎友好
+- 🏷️ **标签系统** - 支持博客文章和项目的标签分类
+- 📊 **内容管理** - 使用 Astro 内容集合进行有序管理
+- 🖼️ **项目展示** - 展示作品集，包含图片、描述和技术标签
+- 💝 **支持功能** - 集成支付宝和微信打赏功能
 
-Before you begin, ensure you have the following installed:
-- [Node.js](https://nodejs.org/) (v18 or higher)
-- [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)
+## 🛠️ 技术栈
+
+- **[Astro.js](https://astro.build/)** - 现代静态站点生成器
+- **[React.js](https://reactjs.org/)** - 交互式组件开发
+- **[Tailwind CSS](https://tailwindcss.com/)** - 原子化CSS框架
+- **[TypeScript](https://www.typescriptlang.org/)** - 类型安全的JavaScript
+- **[MDX](https://mdxjs.com/)** - 支持JSX的Markdown
+- **[Framer Motion](https://www.framer.com/motion/)** - 流畅的动画效果
+
+## 📋 环境要求
+
+- [Node.js](https://nodejs.org/) (v20 或更高版本)
+- [npm](https://www.npmjs.com/) 或 [yarn](https://yarnpkg.com/) 或 [bun](https://bun.sh/)
 - [Git](https://git-scm.com/)
 
-## ⚙️ Installation & Setup
+## ⚙️ 安装与运行
 
-1. **Clone the repository**
+1. **克隆仓库**
    ```bash
-   git clone https://github.com/cojocaru-david/portfolio.git
-   cd portfolio
+   git clone https://github.com/zcliln615/zcliln615.github.io.git
+   cd zcliln615.github.io
    ```
 
-2. **Install dependencies**
+2. **安装依赖**
    ```bash
    npm install
-   # or
+   # 或者
    yarn install
+   # 或者
+   bun install
    ```
 
-3. **Start the development server**
+3. **启动开发服务器**
    ```bash
    npm run dev
-   # or
+   # 或者
    yarn dev
+   # 或者
+   bun dev
    ```
 
-4. **Open your browser**
-   Navigate to `http://localhost:4321` to see the site running locally.
+4. **访问网站**
+   在浏览器中打开 `http://localhost:3000` 查看网站
 
-## 📁 Project Structure
+## 📁 项目结构
 
 ```
 portfolio/
-├── public/                 # Static assets
+├── public/                    # 静态资源
+│   ├── favicon.svg           # 网站图标 
+│   ├── project_pic/          # 项目图片
+│   └── qrcodes/              # 支付二维码
 ├── src/
-│   ├── components/         # UI components
-│   ├── content/            # Content collections
-│   │   ├── blog/           # Blog posts in MD/MDX format
-│   │   └── projects/       # Project data
-│   ├── layouts/            # Page layouts
-│   ├── lib/                # Utility functions
-│   ├── pages/              # Page routes
-│   └── styles/             # Global styles
-├── astro.config.mjs        # Astro configuration
-├── tailwind.config.cjs     # Tailwind CSS configuration
-├── tsconfig.json           # TypeScript configuration
-└── package.json            # Project dependencies
+│   ├── components/           # UI组件
+│   │   ├── react/            # React组件
+│   │   └── ui/               # UI基础组件
+│   ├── content/              # 内容集合
+│   │   ├── blog/             # 博客文章
+│   │   └── projects/         # 项目数据
+│   ├── layouts/              # 页面布局
+│   ├── lib/                  # 工具函数
+│   ├── pages/                # 页面路由
+│   └── styles/               # 全局样式
+├── astro.config.ts           # Astro 配置
+├── tailwind.config.cjs       # Tailwind CSS 配置
+└── tsconfig.json             # TypeScript 配置
 ```
 
-## 🚀 Usage
+## 🚀 使用指南
 
-### Creating a Blog Post
+### 📝 创建博客文章
 
-1. Create a new `.mdx` or `.md` file in `src/content/blog`
-2. Add frontmatter with title, description, date, tags, and authors
-3. Write your content using Markdown and MDX components
+1. 在 `src/content/blog` 目录下创建新的文件夹
+2. 在文件夹中创建 `index.md` 或 `index.mdx` 文件
+3. 添加frontmatter头部信息：
 
 ```mdx
 ---
-title: "Your Post Title"
-description: "A brief description of your post"
-date: 2025-04-20
-tags: ["tag1", "tag2", "tag3"]
-authors: ["Your Name", "Co-author (optional)"]
+title: "文章标题"
+description: "文章简介"
+date: 2025-06-06
+tags: ["标签1", "标签2"]
+authors: ["zcliln615"]
 ---
 
-# Your Post Title
+# 你的文章内容
 
-Write your content here using Markdown.
-
-## Subheading
-
-More content...
-
+在这里写你的技术文章...
 ```
 
-### Adding a Project
+### 🖼️ 添加项目
 
-1. Create a new `.md` file in projects
-2. Add project details including name, description, tags, and image path
+1. 在 `src/content/projects` 目录下创建 `.md` 文件
+2. 添加项目信息：
 
-## 🌙 Dark Mode
+```md
+---
+name: '项目名称'
+description: '项目描述'
+tags: ['技术栈1', '技术栈2']
+image: '../../../public/project_pic/your-image.jpg'
+link: 'https://github.com/your-username/your-project'
+startDate: '2025-06-06'
+---
 
-The project includes dark mode support using Tailwind CSS and Preact. It detects user preferences and applies the appropriate theme, with an option to toggle between light and dark modes.
+## 项目详情
 
-## 📊 Data Utilities
-
-The project includes several utility functions in data-utils.ts:
-
-- `getAllPosts()` - Retrieve all blog posts
-- `getRecentPosts(count)` - Get the most recent posts
-- `getAdjacentPosts(currentId)` - Get next and previous posts
-- `getAllTags()` - Get all tags used in posts
-- `getSortedTags()` - Get tags sorted by usage count
-- `getPostsByAuthor(authorId)` - Get all posts by a specific author
-
-## 📊 Database Setup (Likes/Dislikes Feature)
-
-The portfolio includes a post feedback system allowing visitors to like or dislike blog posts. This feature requires a PostgreSQL database to store vote data. This guide explains how to set it up using [Neon.tech](https://neon.tech).
-
-### Setting Up Neon.tech Database
-
-1. **Create a Neon.tech Account**
-   - Go to [Neon.tech](https://neon.tech) and sign up for an account
-   - Neon offers a generous free tier suitable for personal portfolio sites
-
-2. **Create a New Project**
-   - From the Neon dashboard, click "New Project"
-   - Choose a name for your project (e.g., "portfolio-feedback")
-   - Select the closest region to your target audience
-   - Click "Create Project"
-
-3. **Get Connection Details**
-   - In your project dashboard, find the connection string under "Connection Details"
-   - Save this connection string as you'll need it for your environment variables
-
-4. **Set Environment Variables**
-   - Create a `.env` file in your project root (if not already present)
-   - Add your database connection string:
-     ```
-     DATABASE_URL=your_neon_connection_string_here
-     ```
-
-### Database Schema Setup
-
-Run the following SQL queries in the Neon SQL Editor to create the necessary tables for the feedback system:
-
-```sql
-CREATE TABLE post_feedback (
-  id SERIAL PRIMARY KEY,
-  post_id VARCHAR(255) NOT NULL,
-  likes INTEGER DEFAULT 0,
-  dislikes INTEGER DEFAULT 0,
-  CONSTRAINT unique_post_id UNIQUE (post_id)
-);
-
-CREATE TABLE post_likes (
-  id SERIAL PRIMARY KEY,
-  post_id VARCHAR(255) NOT NULL,
-  fingerprint_id VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  CONSTRAINT unique_like UNIQUE (post_id, fingerprint_id)
-);
-
-CREATE TABLE post_dislikes (
-  id SERIAL PRIMARY KEY,
-  post_id VARCHAR(255) NOT NULL,
-  fingerprint_id VARCHAR(255) NOT NULL,
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  CONSTRAINT unique_dislike UNIQUE (post_id, fingerprint_id)
-);
-
-CREATE INDEX idx_post_feedback_post_id ON post_feedback (post_id);
-CREATE INDEX idx_post_likes_post_id_fingerprint ON post_likes (post_id, fingerprint_id);
-CREATE INDEX idx_post_dislikes_post_id_fingerprint ON post_dislikes (post_id, fingerprint_id);
+项目的详细介绍...
 ```
 
-### How the Feedback System Works
+### 🎨 自定义配置
 
-The feedback system consists of three tables:
-- `post_feedback`: Stores aggregate counts of likes and dislikes for each post
-- `post_likes`: Records individual like actions with fingerprint IDs to prevent duplicate votes
-- `post_dislikes`: Records individual dislike actions with fingerprint IDs
+编辑 `src/consts.ts` 文件来自定义网站信息：
 
-### API Implementation
-
-The portfolio includes API endpoints for handling likes and dislikes:
-
-1. **Fetching Post Feedback**
-   - GET request to `/api/like/{postId}` returns current like/dislike counts
-
-2. **Submitting Likes**
-   - POST request to `/api/like/{postId}` with fingerprint ID in the request body
-   - The system checks if the user has already liked/disliked the post
-   - If not, a like is recorded and the count is updated
-
-3. **Submitting Dislikes**
-   - POST request to `/api/dislike/{postId}` works similarly to the like endpoint
-   - Prevents duplicate votes from the same visitor
-
-### Working with the Database
-
-When a new blog post is created:
-- No manual database entry is needed
-- The first like/dislike action will automatically create the entry in `post_feedback`
-
-To reset likes for a post:
-```sql
-DELETE FROM post_likes WHERE post_id = 'your-post-id';
-DELETE FROM post_dislikes WHERE post_id = 'your-post-id';
-UPDATE post_feedback SET likes = 0, dislikes = 0 WHERE post_id = 'your-post-id';
+```typescript
+export const SITE: Site = {
+  title: '你的网站标题',
+  description: '你的网站描述',
+  href: 'https://your-domain.com',
+  author: '你的名字',
+  locale: 'zh-CN',
+  location: '你的位置',
+}
 ```
 
-To view post statistics:
-```sql
-SELECT * FROM post_feedback ORDER BY likes DESC;
+## 🌐 部署
+
+### GitHub Pages 部署
+
+1. **推送代码到GitHub仓库**
+2. **启用GitHub Actions**
+3. **配置GitHub Pages**
+   - 在仓库设置中选择 "GitHub Actions" 作为源
+4. **访问网站**
+   - `https://yourusername.github.io`
+
+### 其他部署选项
+
+- **Vercel**: 连接GitHub仓库，自动部署
+- **Netlify**: 拖拽 `dist` 文件夹或连接Git仓库
+- **自托管**: 使用 `npm run build` 生成静态文件
+
+## 🔧 构建命令
+
+```bash
+# 开发模式
+npm run dev
+
+# 类型检查
+astro check
+
+# 构建生产版本
+npm run build
+
+# 预览构建结果
+npm run preview
+
+# 代码格式化
+npm run prettier
 ```
 
-To find which posts a specific user has interacted with:
-```sql
-SELECT post_id FROM post_likes WHERE fingerprint_id = 'specific-fingerprint-id';
-```
+## 🎯 定制修改
 
-### Troubleshooting
+这个项目基于开源模板进行了以下定制：
 
-If you encounter issues with the feedback system:
+- ✅ **中文本地化** - 完整的中文界面和内容支持
+- ✅ **标志更改** - 自定义网站标志和图标
+- ✅ **嵌入式主题** - 专注于嵌入式开发内容
+- ✅ **支付功能** - 集成支付宝和微信打赏
+- ✅ **性能优化** - 针对中文内容的加载优化
+- ✅ **SEO优化** - 中文搜索引擎优化
 
-1. **Check Environment Variables**
-   - Ensure your `.env` file contains the correct `DATABASE_URL`
+## 🤝 贡献
 
-2. **Verify Database Connection**
-   - Add logging to your database connection code to check for errors
-   - Make sure your Neon.tech project is active and not in suspended state
+欢迎提交 Issues 和 Pull Requests 来改进这个项目！
 
-3. **Check for Errors in Console**
-   - The feedback component logs errors that can help diagnose issues
+## 📄 许可证
 
-4. **Reset User Vote State**
-   - Users can clear their localStorage to reset their voting state:
-     ```javascript
-     // In browser console
-     localStorage.clear()
-     ```
+本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
 
-## 🤝 Contributing
+## 🙏 致谢
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+感谢原作者 [David Cojocaru](https://github.com/cojocaru-david) 提供的优秀模板基础。
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+---
 
-## 📄 License
+<div align="center">
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+**如果这个项目对你有帮助，请给个 ⭐️ 支持一下！**
