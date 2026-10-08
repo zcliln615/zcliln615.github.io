@@ -2,6 +2,9 @@
 
 使用 Hugo 标准版构建的中文个人博客，内容位于 Markdown 文件中，页面不依赖浏览器端应用框架。
 
+- 站点：[https://zcliln615.github.io/](https://zcliln615.github.io/)
+- 源码：[zcliln615/zcliln615.github.io](https://github.com/zcliln615/zcliln615.github.io)
+
 ## 本地工具
 
 - Hugo **0.167.0 标准版**。
@@ -26,6 +29,8 @@ $hugo = Join-Path $env:LOCALAPPDATA 'Programs\Hugo\0.167.0\hugo.exe'
 ```
 
 生成结果位于 `public/`。`public/`、`resources/` 与 `.hugo_build.lock` 不提交到 Git。
+
+仓库通过 `.gitattributes` 将文本文件固定为 LF，避免 Windows 与 Linux 之间的换行转换冲突；不需要关闭 Git 的换行安全检查。
 
 ## 写作入口
 
@@ -62,6 +67,24 @@ date: "2026-10-08"
 ```
 
 打开 `http://localhost:1316/preview-blog/`，检查导航、文章直链、刷新、样式和图片。更换端口时，同时更改 `--port` 与 `--baseURL` 中的端口。
+
+## 自动发布
+
+发布入口是 `main` 分支。修改内容、完成本地预览后，提交并推送：
+
+```sh
+git add <本次修改的文件>
+git commit -m "Update article"
+git push origin main
+```
+
+`.github/workflows/pages.yml` 在 Ubuntu 上校验并安装固定版本的 Hugo，使用 GitHub Pages 提供的实际地址构建，仅上传 `public/`。部署 job 依赖构建成功，不需要个人访问令牌或手工上传 HTML。
+
+当前仓库的 Pages Source 为 **GitHub Actions**，`github-pages` environment 允许 `main` 分支部署。若复制到新仓库，需要在新仓库重新开启对应的 Actions、Pages 和部署环境权限。
+
+推送后查看 [Actions](https://github.com/zcliln615/zcliln615.github.io/actions) 中的构建与部署结果，再打开实际站点核对正文和资源；工作流绿色状态不能替代页面检查。
+
+升级 Hugo 时，同步工作流中的 `HUGO_VERSION`、对应 Linux 安装包的 SHA256、本地程序版本和使用说明，不单独改动其中一处。
 
 ## 内容公开边界
 
