@@ -1,0 +1,22 @@
+baseURL = 'https://zcliln615.github.io/'
+title = 'fourierlin 的博客'
+locale = 'zh-CN'
+defaultContentLanguage = 'zh-cn'
+isCJKLanguage = true
+buildFuture = true
+disableKinds = ['section', 'taxonomy', 'term', 'RSS', 'sitemap']
+
+[params]
+description = '记录计算机视觉、多视角重建与端侧部署中的学习和实践。'
+
+[frontmatter]
+date = ['date']
+
+[markup.highlight]
+style = 'github'
+
+[markup.goldmark.renderHooks.link]
+useEmbedded = 'always'
+
+[markup.goldmark.renderHooks.image]
+useEmbedded = 'always'

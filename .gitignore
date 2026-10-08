@@ -1,0 +1,8 @@
+
+# Per-checkout workflow pointer
+.dev/active-task
+
+# Hugo build output
+/public/
+/resources/
+/.hugo_build.lock

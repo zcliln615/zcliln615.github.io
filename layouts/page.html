@@ -1,0 +1,23 @@
+{{ define "main" }}
+  {{ $title := .Title | strings.TrimSpace }}
+  {{ if not $title }}
+    {{ errorf "%s: front matter title is required" .File.Path }}
+  {{ end }}
+  {{ $isPost := eq .Section "posts" }}
+  {{ if and $isPost .Date.IsZero }}
+    {{ errorf "%s: front matter date is required (YYYY-MM-DD)" .File.Path }}
+  {{ end }}
+  <article>
+    <header class="article-header">
+      <h1>{{ $title }}</h1>
+      {{ if $isPost }}
+        {{ $date := .Date.Format "2006-01-02" }}
+        <time datetime="{{ $date }}">{{ $date }}</time>
+      {{ end }}
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </article>
+  <p class="back-link"><a href="{{ .Site.Home.RelPermalink }}">← 返回首页</a></p>
+{{ end }}

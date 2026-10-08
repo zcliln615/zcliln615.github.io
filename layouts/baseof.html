@@ -1,0 +1,33 @@
+{{- $about := .Site.GetPage "/about" -}}
+{{- if not $about -}}
+  {{- errorf "content/about/index.md: the about page is required" -}}
+{{- end -}}
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} · {{ end }}{{ .Site.Title }}</title>
+  <link rel="stylesheet" href="{{ "css/site.css" | relURL }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">跳至正文</a>
+  <div class="site-shell">
+    <header class="site-header">
+      <a class="site-brand" href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+      <nav class="site-nav" aria-label="主导航">
+        <a href="{{ .Site.Home.RelPermalink }}"{{ if .IsHome }} aria-current="page"{{ end }}>首页</a>
+        {{ with $about }}
+          <a href="{{ .RelPermalink }}"{{ if eq $.RelPermalink .RelPermalink }} aria-current="page"{{ end }}>关于</a>
+        {{ end }}
+      </nav>
+    </header>
+    <main id="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    <footer class="site-footer">
+      <p>© {{ now.Year }} {{ .Site.Title }}</p>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="490" viewBox="0 0 360 490" role="img" aria-labelledby="title desc">
+  <title id="title">博客的写作与发布流程</title>
+  <desc id="desc">Markdown 文章提交到 main 分支，由 Hugo 构建为静态页面，再部署到 GitHub Pages。</desc>
+  <g fill="none" stroke="currentColor" stroke-width="1.5">
+    <rect x="30" y="12" width="300" height="80" rx="10"/>
+    <rect x="30" y="124" width="300" height="80" rx="10"/>
+    <rect x="30" y="236" width="300" height="80" rx="10"/>
+    <rect x="30" y="348" width="300" height="80" rx="10"/>
+    <path d="M180 98v20m-6-6 6 6 6-6M180 210v20m-6-6 6 6 6-6M180 322v20m-6-6 6 6 6-6"/>
+  </g>
+  <g fill="currentColor" font-family="system-ui, 'Microsoft YaHei', sans-serif" text-anchor="middle">
+    <g font-size="20" font-weight="600">
+      <text x="180" y="45">Markdown</text>
+      <text x="180" y="157">Git</text>
+      <text x="180" y="269">Hugo</text>
+      <text x="180" y="381">Pages</text>
+    </g>
+    <g font-size="15">
+      <text x="180" y="70">文章与图片</text>
+      <text x="180" y="182">推送 main</text>
+      <text x="180" y="294">生成静态页面</text>
+      <text x="180" y="406">公开访问</text>
+    </g>
+    <text x="180" y="470" font-size="15">GitHub Actions 自动构建与部署</text>
+  </g>
+</svg>

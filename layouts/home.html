@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <section class="home-intro" aria-labelledby="home-title">
+    <p class="eyebrow">计算机视觉 · 模型与工程</p>
+    <h1 id="home-title">学习笔记与工程实践</h1>
+    <p class="intro-description">{{ .Site.Params.description }}</p>
+  </section>
+  <section aria-labelledby="posts-title">
+    <h2 id="posts-title" class="section-title">最新文章</h2>
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ if $posts }}
+      <ol class="post-list">
+        {{ range $posts.ByDate.Reverse }}
+          {{ $date := .Date.Format "2006-01-02" }}
+          <li class="post-list-item">
+            <time datetime="{{ $date }}">{{ $date }}</time>
+            <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          </li>
+        {{ end }}
+      </ol>
+    {{ else }}
+      <div class="empty-state">
+        <p>还没有文章。</p>
+        <p>新的文章发布后，会显示在这里。</p>
+      </div>
+    {{ end }}
+  </section>
+{{ end }}
